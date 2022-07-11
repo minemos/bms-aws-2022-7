@@ -31,7 +31,7 @@ jobs:
           echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
           chmod 700 .ssh
           ssh -o StrictHostKeyChecking=no -i private_key ${USERNAME}@${HOSTNAME} '
-            cd ./helloworld &&
+            cd ./bms-aws-2022-7 &&
             git reset --hard &&
             git pull &&
             npm install &&
