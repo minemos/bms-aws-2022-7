@@ -31,6 +31,9 @@ jobs:
           echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
           ssh -o StrictHostKeyChecking=no -i private_key ${USERNAME}@${HOSTNAME} '
             cd ./bms-aws-2022-7 &&
-            chmod 777 deploy.sh &&
-            ./deploy.sh
+            git reset --hard &&
+            git pull &&
+            npm install &&
+            pm2 stop index.js &&
+            pm2 start index.js
           '
